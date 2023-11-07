@@ -11,7 +11,7 @@ func main() {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    200,
 			"message": "test",
-			"data":    "xiaomajie",
+			"data":    "test",
 		})
 	})
 	router.Run(":8000")
