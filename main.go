@@ -1,18 +1,18 @@
 package main
 
 import (
+	"gin-api-client/routes/system"
 	"github.com/gin-gonic/gin"
-	"net/http"
 )
 
 func main() {
-	router := gin.Default()
-	router.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"code":    200,
-			"message": "test",
-			"data":    "test",
-		})
-	})
-	router.Run(":8000")
+
+	ginEngine := gin.New()
+
+	system.GroupApp.Init(ginEngine)
+
+	ginServer := ginEngine.Run(":8000")
+	if ginServer != nil {
+		return
+	}
 }
