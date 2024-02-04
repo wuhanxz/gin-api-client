@@ -1,17 +1,17 @@
-package system
+package routes
 
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
 
-type TestRouter struct {
+type ApiRouter struct {
 }
 
-func (s *TestRouter) InitRouter(Router *gin.RouterGroup) {
-	baseRouter := Router.Group("test")
+func (r *ApiRouter) InitApiRouter(Router *gin.RouterGroup) {
+	apiRouter := Router.Group("api")
 	{
-		baseRouter.GET("", func(context *gin.Context) {
+		apiRouter.GET("info", func(context *gin.Context) {
 			context.JSON(http.StatusOK, gin.H{
 				"code":    200,
 				"message": "this is test",

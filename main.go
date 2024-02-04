@@ -1,7 +1,7 @@
 package main
 
 import (
-	"gin-api-client/routes/system"
+	"gin-api-client/routes"
 	"github.com/gin-gonic/gin"
 )
 
@@ -9,7 +9,7 @@ func main() {
 
 	ginEngine := gin.New()
 
-	system.GroupApp.Init(ginEngine)
+	new(routes.RouterGroup).InitRouter(ginEngine)
 
 	ginServer := ginEngine.Run(":8000")
 	if ginServer != nil {
